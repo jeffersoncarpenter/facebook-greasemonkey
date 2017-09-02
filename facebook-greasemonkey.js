@@ -14,14 +14,20 @@ hideHomeRightColumn.innerHTML = '.home_right_column {display: none}';
 document.head.appendChild(hideHomeRightColumn);
 
 
-// hide all sponsored stories
-// do this every 100 milliseconds, but only when facebook tab is open
+// do these things every 100 milliseconds, but only when facebook tab is open
 var interval;
-var setSponsoredInterval = function () {
+var setIntervals = function () {
   interval = setInterval(function () {
     var as = document.querySelectorAll('a');
     for (var i = 0; i < as.length; i++) {
       var a = as[i];
+      
+      // click "not now"
+      if (a.innerHTML === 'Not Now') {
+        a.click();
+      }
+      
+      // hide all sponsored stories
       if (a.innerHTML === 'Sponsored') {
         var el = a;
         while (el && el.id.indexOf('substream_') === -1) {
@@ -34,11 +40,11 @@ var setSponsoredInterval = function () {
     };
   }, 100);
 };
-setSponsoredInterval();
+setIntervals();
 window.addEventListener('blur', function () {
   clearInterval(interval);
 });
-window.addEventListener('focus', setSponsoredInterval);
+window.addEventListener('focus', setIntervals);
 
 
 // show "most recent" stories, not "top stories"

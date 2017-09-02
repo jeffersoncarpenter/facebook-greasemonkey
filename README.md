@@ -5,6 +5,7 @@
 * Deletes ads on right side.
 * Deletes sponsored stories in news feed.
 * Selects "Most Recent" stories automatically, in case "Top Stories" are selected.
+* Clicks "Not Now" on any modal dialogs that pop up, such as the one offering to show desktop notifications.
 
 ## Install:
 
