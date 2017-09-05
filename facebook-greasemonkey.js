@@ -30,7 +30,7 @@ var setIntervals = function () {
       // hide all sponsored stories
       if (a.innerHTML === 'Sponsored') {
         var el = a;
-        while (el && el.id.indexOf('substream_') === -1) {
+        while (el && el.id.indexOf('hyperfeed_') === -1) {
           el = el.parentElement;
         }
         if (el) {
