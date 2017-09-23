@@ -14,6 +14,12 @@ hideHomeRightColumn.innerHTML = '.home_right_column {display: none}';
 document.head.appendChild(hideHomeRightColumn);
 
 
+// hide megaphone
+var hideHomeRightColumn = document.createElement("STYLE"); 
+hideHomeRightColumn.innerHTML = '#pagelet_megaphone {display: none}';
+document.head.appendChild(hideHomeRightColumn);
+
+
 // do these things every 100 milliseconds, but only when facebook tab is open
 var interval;
 var setIntervals = function () {
