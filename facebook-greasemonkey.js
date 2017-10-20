@@ -44,6 +44,19 @@ var setIntervals = function () {
         }
       }
     };
+
+    // hide hyperfeeds containing a span containing 'Facebook'
+    var hyperfeeds = document.evaluate("//div[starts-with(@id, 'hyperfeed_')] // span[contains(text(), 'Facebook')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+    for (var i = 0; i < hyperfeeds.snapshotLength; i++) {
+      var span = hyperfeeds.snapshotItem(i);
+      var el = span;
+      while (el && el.id.indexOf('hyperfeed_') === -1) {
+        el = el.parentElement;
+      }
+      if (el) {
+        el.style.display = 'none';
+      }
+    }
   }, 100);
 };
 setIntervals();
@@ -55,7 +68,7 @@ window.addEventListener('focus', setIntervals);
 
 // show "most recent" stories, not "top stories"
 if (window.location.href === 'https://www.facebook.com/' ||
-   window.location.href === 'https://www.facebook.com/?sk=h_nor' ||
-   window.location.href === 'https://www.facebook.com/?ref=logo') {
+    window.location.href === 'https://www.facebook.com/?sk=h_nor' ||
+    window.location.href === 'https://www.facebook.com/?ref=logo') {
   window.location.href = 'https://www.facebook.com/?sk=h_chr';
 }
