@@ -43,10 +43,30 @@ var setIntervals = function () {
           el.style.display = 'none';
         }
       }
+      
+      // hide "back to top stories"
+      if (a.innerHTML === 'Back to top stories') {
+        var el = a.parentElement.parentElement;
+        el.style.display = 'none';
+      }
     };
 
     // hide hyperfeeds containing a span containing 'Facebook'
     var hyperfeeds = document.evaluate("//div[starts-with(@id, 'hyperfeed_')] // span[contains(text(), 'Facebook')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+    for (var i = 0; i < hyperfeeds.snapshotLength; i++) {
+      var span = hyperfeeds.snapshotItem(i);
+      var el = span;
+      while (el && el.id.indexOf('hyperfeed_') === -1) {
+        el = el.parentElement;
+      }
+      if (el) {
+        el.style.display = 'none';
+      }
+    }
+
+    // hide hyperfeeds containing a span containing 'Only you can see this unless you share it'
+    // Seen in "Your October Moments" story
+    var hyperfeeds = document.evaluate("//div[starts-with(@id, 'hyperfeed_')] // span[contains(text(), 'Only you can see this unless you share it')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
     for (var i = 0; i < hyperfeeds.snapshotLength; i++) {
       var span = hyperfeeds.snapshotItem(i);
       var el = span;
