@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Good
+// @name        Facebook
 // @namespace   facebook
 // @include     /^https:\/\/www\.facebook\.com\/.*/
 // @version     1
