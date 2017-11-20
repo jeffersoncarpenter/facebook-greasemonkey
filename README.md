@@ -4,8 +4,10 @@
 
 * Deletes ads on right side.
 * Deletes sponsored stories in news feed.
-* Selects "Most Recent" stories automatically, in case "Top Stories" are selected.
+* Selects "Most Recent" stories automatically, in case "Top Stories" are selected.  Also hides "back to top stories" text.
 * Clicks "Not Now" on any modal dialogs that pop up, such as the one offering to show desktop notifications.
+* Attempts to hide stories that are from Facebook rather than friends.
+* Auto-refreshes profile pages when they show "Posts you haven't seen", making them show posts in chronological order.
 
 ## Install:
 
