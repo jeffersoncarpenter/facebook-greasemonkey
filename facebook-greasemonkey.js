@@ -20,6 +20,12 @@ hideHomeRightColumn.innerHTML = '#pagelet_megaphone {display: none}';
 document.head.appendChild(hideHomeRightColumn);
 
 
+// refresh in case of "posts you haven't seen"
+if (-1 !== document.body.innerHTML.indexOf('POSTS YOU HAVEN\'T SEEN')) {
+    window.location.reload();
+}
+
+
 // do these things every 100 milliseconds, but only when facebook tab is open
 var interval;
 var setIntervals = function () {
