@@ -9,21 +9,15 @@
 
 
 // hide ads on right side of screen
-var hideHomeRightColumn = document.createElement("STYLE"); 
+var hideHomeRightColumn = document.createElement("STYLE");
 hideHomeRightColumn.innerHTML = '.home_right_column {display: none}';
 document.head.appendChild(hideHomeRightColumn);
 
 
 // hide megaphone
-var hideHomeRightColumn = document.createElement("STYLE"); 
+var hideHomeRightColumn = document.createElement("STYLE");
 hideHomeRightColumn.innerHTML = '#pagelet_megaphone {display: none}';
 document.head.appendChild(hideHomeRightColumn);
-
-
-// refresh in case of "posts you haven't seen"
-if (-1 !== document.body.innerHTML.indexOf('POSTS YOU HAVEN\'T SEEN')) {
-    window.location.reload();
-}
 
 
 // do these things every 100 milliseconds, but only when facebook tab is open
@@ -33,12 +27,12 @@ var setIntervals = function () {
     var as = document.querySelectorAll('a');
     for (var i = 0; i < as.length; i++) {
       var a = as[i];
-      
+
       // click "not now"
       if (a.innerHTML === 'Not Now') {
         a.click();
       }
-      
+
       // hide all sponsored stories
       if (a.innerHTML === 'Sponsored') {
         var el = a;
@@ -49,7 +43,7 @@ var setIntervals = function () {
           el.style.display = 'none';
         }
       }
-      
+
       // hide "back to top stories"
       if (a.innerHTML === 'Back to top stories') {
         var el = a.parentElement.parentElement;
@@ -82,6 +76,12 @@ var setIntervals = function () {
       if (el) {
         el.style.display = 'none';
       }
+    }
+
+
+    // refresh in case of "posts you haven't seen"
+    if (-1 !== document.body.innerHTML.indexOf('POSTS YOU HAVEN\'T SEEN')) {
+        window.location.reload();
     }
   }, 100);
 };
